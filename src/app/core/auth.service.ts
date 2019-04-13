@@ -12,11 +12,19 @@ import {
 import { Observable, of } from 'rxjs';
 import { switchMap, startWith, tap, filter } from 'rxjs/operators';
 
-interface FirebaseUser {
+export interface FirebaseUser {
   uid: string;
   email?: string | null;
   photoURL?: string;
   displayName?: string;
+  rank: number;
+  flakes: number;
+  completedEvents: number;
+  bio: string;
+  references: {
+    [uid: string]: string
+  };
+  age: number;
 }
 
 @Injectable()
@@ -77,7 +85,7 @@ export class AuthService {
       `users/${user.uid}`
     );
 
-    const data: FirebaseUser = {
+    const data: Partial<FirebaseUser> = {
       uid: user.uid,
       email: user.email || null,
       displayName: user.displayName || 'nameless user',
