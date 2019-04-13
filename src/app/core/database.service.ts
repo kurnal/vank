@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection, DocumentSnapshotDoesNotExist, DocumentSnapshotExists } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection, 
+  DocumentSnapshotDoesNotExist, DocumentSnapshotExists } from '@angular/fire/firestore';
 import { FirebaseUser, AuthService } from './auth.service';
 import * as firebase from 'firebase';
 import { take } from 'rxjs/operators';
@@ -38,13 +39,13 @@ export class DatabaseService {
 
   constructor(private afs: AngularFirestore, private auth: AuthService) { 
     this.geo = geofirex.init(firebase);
-    this.eventsCollection = this.afs.collection("events");
+    this.eventsCollection = this.afs.collection('events');
   }
 
   public createNewListing(event: Partial<Event>, lat: string, lng: string) {
     const collection = this.geo.collection('events');
 
-    if(!this.auth.userDoc.organization) {
+    if (!this.auth.userDoc.organization) {
       return;
     }
     const newEvent: Event = {
@@ -98,30 +99,32 @@ export class DatabaseService {
       ratings: {
         [eventId]: rating
       }
-    });
-    this.afs.doc<FirebaseUser>(`users/${studentId}`).ref.get().then((value: DocumentSnapshot) => {
-      const payload: FirebaseUser = value.data() as FirebaseUser;
-      let numEvents = 0;
-      let rank = 5;
-      if(payload.ratings) {
-        let ratings = Object.values(payload.ratings);
-        numEvents = ratings.length;
-        if(numEvents > 0) {
-          let sum = 0;
-          for(let i=0; i<numEvents; i++) {
-            //r
+    }).then(() => {
+      this.afs.doc<FirebaseUser>(`users/${studentId}`).ref.get().then((value: DocumentSnapshot) => {
+        const payload: FirebaseUser = value.data() as FirebaseUser;
+        let numEvents = 0;
+        let rank = 5;
+        if(payload.ratings) {
+          let ratings = Object.values(payload.ratings);
+          numEvents = ratings.length;
+          if(numEvents > 0) {
+            let sum = 0;
+            for(let i=0; i<numEvents; i++) {
+              sum += ratings[i];
+            }
+            sum /= numEvents;
+            rank = sum;
           }
+          this.set(`users/${studentId}`, {
+            rank: rank,
+            completedEvents: numEvents
+          });
         }
-        
-      }
+      });
     });
   }
 
-  update(ref: string, data: any): Promise<void> {
-    return this.afs.doc(ref).update(data);
-  }
-
-  set(ref: string, data: any): Promise<void> {
+  private set(ref: string, data: any): Promise<void> {
     return this.afs.doc(ref).set(data, { merge: true });
   }
 }
