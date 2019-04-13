@@ -25,6 +25,10 @@ export interface FirebaseUser {
     [uid: string]: string
   };
   age: number;
+  organization: boolean;
+  orgData: {
+    orgName: string;
+  };
 }
 
 @Injectable()
