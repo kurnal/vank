@@ -18,16 +18,19 @@ export interface FirebaseUser {
   photoURL?: string;
   displayName?: string;
   rank: number;
-  flakes: number;
   completedEvents: number;
   bio: string;
   references: {
     [uid: string]: string
   };
+  ratings: {
+    [eventId: string]: number
+  };
   age: number;
   organization: boolean;
   orgData: {
-    orgName: string;
+    orgName: string,
+    verified: boolean
   };
 }
 
