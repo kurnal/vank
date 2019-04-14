@@ -1,4 +1,11 @@
-<p>
-  rate-students works!
-</p>
-<mat-icon>star</mat-icon>
+<div *ngIf="!rated else done">
+    <button (click)="setRating(1)" mat-button color="warn"><mat-icon>star</mat-icon></button>
+    <button (click)="setRating(2)" mat-button color="warn"><mat-icon>star</mat-icon></button>
+    <button (click)="setRating(3)" mat-button color="warn"><mat-icon>star</mat-icon></button>
+    <button (click)="setRating(4)" mat-button color="warn"><mat-icon>star</mat-icon></button>
+    <button (click)="setRating(5)" mat-button color="warn"><mat-icon>star</mat-icon></button>
+</div>
+
+<ng-template #done>
+  Thank you for your feedback!
+</ng-template>

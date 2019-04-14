@@ -31,4 +31,17 @@ export class StudentComponent implements OnInit {
     this.db.updateProfile(payload);
   }
 
+  getRatings() {
+    let ratings = [];
+    if(this.auth.userDoc.rank) {
+      for(let i=0; i<Math.floor(this.auth.userDoc.rank);i++) {
+        ratings.push('');
+      }
+      return ratings;
+    } else {
+      return ratings;
+    }
+    
+  }
+
 }

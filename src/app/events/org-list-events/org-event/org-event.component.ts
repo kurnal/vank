@@ -17,7 +17,10 @@ export class OrgEventComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.past = (new Date()).getMilliseconds() > (this.event.endDate as Timestamp).toMillis(); 
+    // console.log((new Date()).getMilliseconds());
+    console.log((this.event.endDate as Timestamp).toMillis());
+    this.past = (new Date()).getTime() > (this.event.endDate as Timestamp).toMillis(); 
+    
   }
 
   getStudents() {

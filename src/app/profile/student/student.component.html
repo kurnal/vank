@@ -3,6 +3,9 @@
     <div class="col-12 center">
         <img src="{{auth.userDoc.photoURL}}"> 
         <h1>{{auth.userDoc.displayName}}</h1>  
+        <div>
+            <mat-icon *ngFor="let rating of getRatings()">star</mat-icon>
+        </div>
     </div>
   </div>
 
