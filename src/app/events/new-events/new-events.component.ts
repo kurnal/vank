@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild, Inject, ElementRef, NgZone, AfterViewInit
 import { DatabaseService } from 'src/app/core/database.service';
 import { MatSidenav } from '@angular/material';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-import { DialogData } from '../events.component';
 import {Validators, FormGroup, FormBuilder} from '@angular/forms';
 import { MapsAPILoader, AgmMap } from '@agm/core';
 import { GoogleMapsAPIWrapper } from '@agm/core/services';
@@ -30,8 +29,7 @@ export class NewEventsComponent implements OnInit {
 
   @ViewChild('search') searchElementRef: ElementRef;
 
-  constructor(private db: DatabaseService, @Inject(MAT_DIALOG_DATA) public data: DialogData, 
-  private fb: FormBuilder, private dialogRef:MatDialogRef<NewEventsComponent>) {
+  constructor(private db: DatabaseService, private fb: FormBuilder, private dialogRef: MatDialogRef<NewEventsComponent>) {
     this.form = this.fb.group({
       description: ['',[Validators.required]],
       requestAmount: ['',[Validators.required]],
@@ -67,7 +65,6 @@ export class NewEventsComponent implements OnInit {
     }
   
     onLocationSelected(location: Location) {
-      console.log('onLocationSelected: ', location);
       this.latitude = location.latitude;
       this.longitude = location.longitude;
     }

@@ -23,6 +23,7 @@ import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/go
 import { StudentComponent } from './profile/student/student.component';
 import { OrganizationComponent } from './profile/organization/organization.component';
 import { OrgListEventsComponent } from './events/org-list-events/org-list-events.component';
+import { SingleEventComponent } from './events/single-event/single-event.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { OrgListEventsComponent } from './events/org-list-events/org-list-events
     LandingComponent,
     StudentComponent,
     OrganizationComponent,
-    OrgListEventsComponent
+    OrgListEventsComponent,
+    SingleEventComponent
   ],
   imports: [
     BrowserModule,
