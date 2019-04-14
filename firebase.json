@@ -4,7 +4,7 @@
     "indexes": "firestore.indexes.json"
   },
   "hosting": {
-    "public": "dist",
+    "public": "dist/bitcamp2019",
     "ignore": [
       "firebase.json",
       "**/.*",

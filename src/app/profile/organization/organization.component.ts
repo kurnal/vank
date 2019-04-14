@@ -13,10 +13,10 @@ export class OrganizationComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor(private db:DatabaseService, private auth: AuthService,
+  constructor(private db:DatabaseService, public auth: AuthService,
     private fb:FormBuilder) { 
       this.form = this.fb.group({
-        bio:['',[Validators.required]],
+        description:['',[Validators.required]],
         orgName: ['',[Validators.required]]
       });
     }
@@ -25,7 +25,7 @@ export class OrganizationComponent implements OnInit {
 
   submit() {
     let payload = {
-      bio: this.form.value.bio,
+      description: this.form.value.description,
       orgData: {
         orgName: this.form.value.orgName,
         verified: true

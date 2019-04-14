@@ -20,7 +20,7 @@ export interface FirebaseUser {
   registered: boolean;
   rank: number;
   completedEvents: number;
-  bio: string;
+  description: string;
   references: {
     [uid: string]: string
   };
