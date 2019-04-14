@@ -5,9 +5,9 @@
   </mat-card-header>
   <mat-card-content>
     <p>
-      {{event.description}}
+      This event is sponsored by {{event.organization}}
     </p>
-    <agm-map [latitude]="event.lat" [longitude]="event.lng" scrollwheel="false" zoom="zoom">
+    <agm-map [latitude]="event.lat" [longitude]="event.lng" scrollwheel="false">
       <agm-marker [latitude]="event.lat" [longitude]="event.lng"></agm-marker>
     </agm-map>
   </mat-card-content>

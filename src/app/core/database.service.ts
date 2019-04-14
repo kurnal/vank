@@ -55,7 +55,7 @@ export class DatabaseService {
     const point = this.geo.point(lat, lng);
     const newEvent: Event = {
       id: this.afs.createId(),
-      organization: this.auth.userDoc.displayName,
+      organization: this.auth.userDoc.orgData.orgName,
       organizationRef: this.auth.userDoc.uid,
       description: event.description,
       requestAmount: event.requestAmount,
@@ -64,8 +64,8 @@ export class DatabaseService {
       lat: lat,
       lng: lng,
       tags: event.tags,
-      startDate: event.startDate,
-      endDate: event.endDate
+      startDate: new Date(event.startDate as unknown as string),
+      endDate: new Date(event.endDate as unknown as string)
     };
     collection.setDoc(`${newEvent.id}`, newEvent);
   }
