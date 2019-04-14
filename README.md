@@ -29,13 +29,13 @@ Submission for **Bitcamp 2019**.
 **Database**
 * Firebase
 
-##Stategy
-# 1. Separate Users and Organizations
-# 2. Design a GUI that gives parties fast and simple access 
-# 3. Design a rating system for both parties (users and organizations)
-# 4. Designed GUI in a way that gives the user the closest organizations first in the stack
+## Stategy
+* Separate Users and Organizations
+* Design a GUI that gives parties fast and simple access 
+* Design a rating system for both parties (users and organizations)
+* Designed GUI in a way that gives the user the closest organizations first in the stack
 
-##Bonus
+## Bonus
 * Learn Angular, TypeScript, Google Maps, Firebase 
 * Pinpoint coordinates of the organizations around the users current location 
 
