@@ -1,0 +1,59 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .left {
+    float:left;
+    width: 25%;
+    margin-right: 5%;
+  }
+
+  .left h1 {
+    text-align: center;
+  }
+
+  .left img {
+    height: 300px;
+    width: 300px;
+  }
+
+  .right {
+    float: right;
+    width: 70%;
+    text-align: center;
+  }
+  
+  .example-container > * {
+    width: 100%;
+  }
+  .reframe {
+    height: 100px;
+    width: 150px;
+    overflow: hidden;
+  }
+
+  .reframe img src {
+    height: auto;
+    width: 150px;
+  }
+
+  div.example-container {
+    font-size: 150%
+  }
+
+  .example-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .sidebar-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }

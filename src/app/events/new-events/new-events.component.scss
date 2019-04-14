@@ -1,0 +1,49 @@
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.md-dialog-container {
+  background-color: #000;
+  width: 250px;
+  height: 250px
+}
+
+agm-map {
+  height: 300px;
+}
+
+.sebm-google-map-container {
+  height: 300px;
+}
+
+.enterListings {
+  text-align: center;
+}
+
+.enterListings mat-form-field {
+  width: 80%;
+}
+
+#map {
+  height: 400px;
+  width: 400px;
+}
+
+/* Optional: Makes the sample page fill the window. */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+
+  

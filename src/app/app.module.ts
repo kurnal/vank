@@ -16,6 +16,9 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from 'src/environments/environment';
+import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -32,9 +35,20 @@ import { environment } from 'src/environments/environment';
     MaterialModule,
     AngularFireModule.initializeApp(environment.firebase, 'firestarter'),
     AngularFirestoreModule,
+    AngularFireAuthModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
+    ReactiveFormsModule,
+    FormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCv5pm4rltEP-nrfSvvMu6EVKlZyK9jDqg',
+      libraries: ["places"]
+    }),
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule
   ],
-  providers: [AuthService, DatabaseService, AuthGuard],
-  bootstrap: [AppComponent]
+  providers: [AuthService, DatabaseService, AuthGuard, GoogleMapsAPIWrapper],
+  bootstrap: [AppComponent],
+  entryComponents: [NewEventsComponent]
 })
 export class AppModule { }

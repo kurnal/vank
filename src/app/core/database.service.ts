@@ -20,10 +20,9 @@ export interface Event {
       approved: boolean
     }
   };
-  location: {
-    geohash: string;
-    geopoint: firebase.firestore.GeoPoint;
-  };
+
+  lat: string;
+  lng: string;
   tags: string[];
   startDate: firebase.firestore.Timestamp | Date;
   endDate: firebase.firestore.Timestamp | Date;
@@ -32,6 +31,7 @@ export interface Event {
 @Injectable({
   providedIn: 'root'
 })
+
 export class DatabaseService {
 
   eventsCollection: AngularFirestoreCollection<Event>;
@@ -40,26 +40,31 @@ export class DatabaseService {
   constructor(private afs: AngularFirestore, private auth: AuthService) { 
     this.geo = geofirex.init(firebase);
     this.eventsCollection = this.afs.collection('events');
+    console.log(auth);
   }
 
   public createNewListing(event: Partial<Event>, lat: string, lng: string) {
     const collection = this.geo.collection('events');
 
-    if (!this.auth.userDoc.organization) {
-      return;
-    }
+
+    // if (!this.auth.userDoc.organization) {
+    //   return;
+    // }
+
     const newEvent: Event = {
       id: this.afs.createId(),
-      organization: this.auth.userDoc.orgData.orgName,
+      organization: this.auth.userDoc.displayName,
       description: event.description,
       requestAmount: event.requestAmount,
       students: {},
-      location: this.geo.point(lat, lng),
+      lat: lat,
+      lng: lng,
       tags: event.tags,
       startDate: event.startDate,
       endDate: event.endDate
     };
-    collection.setDoc(`events/${newEvent.id}`, newEvent);
+    console.log(newEvent)
+    collection.setDoc(`${newEvent.id}`, newEvent);
   }
 
   public getEvents(lat:string, lng:string, radius: number): Observable<Event[]> {

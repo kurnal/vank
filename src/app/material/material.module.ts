@@ -43,6 +43,7 @@ import {
   MatTooltipModule,
   MatTreeModule,
 } from '@angular/material';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler/src/core';
 
 @NgModule({
   exports: [
@@ -87,7 +88,7 @@ import {
     MatTooltipModule,
     MatTreeModule,
     PortalModule,
-    ScrollingModule,
+    ScrollingModule
   ]
 })
 export class MaterialModule {}

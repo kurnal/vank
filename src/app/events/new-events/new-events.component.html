@@ -1,3 +1,60 @@
-<p>
-  new-events works!
-</p>
+    <form class="enterListings" [formGroup]="form" (ngSubmit)="submit()">
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Description of Job</mat-label>
+          <input matInput formControlName="description" placeholder="Arko's Beautiful Soup Kitchen">
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Required Volunteers</mat-label>
+          <input matInput type="number" formControlName="requestAmount" placeholder="3">
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+      </p>
+      
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Tags</mat-label>
+          <input matInput formControlName="tags" placeholder="Service, Food">
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+      </p>
+
+      <p>
+          <mat-form-field appearance="fill">
+            <mat-label>Start Date</mat-label>
+            <input matInput formControlName="startDate" type="datetime-local" placeholder="">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <mat-hint>Hint</mat-hint>
+          </mat-form-field>
+      </p>
+
+      <p>
+          <mat-form-field appearance="fill">
+            <mat-label>End Date</mat-label>
+            <input matInput formControlName="endDate" type="datetime-local" placeholder="">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <mat-hint>Hint</mat-hint>
+          </mat-form-field>
+      </p>
+
+      <button mat-flat-button color="accent" type="submit" [disabled]="!form.valid">Submit</button>
+
+    </form>
+      
+
+        
+
+      
+      
+
+
+
+
+      
