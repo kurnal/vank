@@ -19,6 +19,10 @@ import { environment } from 'src/environments/environment';
 import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
+import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
+import { StudentComponent } from './profile/student/student.component';
+import { OrganizationComponent } from './profile/organization/organization.component';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +31,9 @@ import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
     LoginComponent,
     EventsComponent,
     NewEventsComponent,
-    LandingComponent
+    LandingComponent,
+    StudentComponent,
+    OrganizationComponent
   ],
   imports: [
     BrowserModule,
@@ -41,9 +47,10 @@ import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
     ReactiveFormsModule,
     FormsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyCv5pm4rltEP-nrfSvvMu6EVKlZyK9jDqg',
+      apiKey: 'AIzaSyDEOcbQVAILnMAsXiNBrZkuxdYdwb7NXZY',
       libraries: ["places"]
     }),
+    MatGoogleMapsAutocompleteModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule
   ],

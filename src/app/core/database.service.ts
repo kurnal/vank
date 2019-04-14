@@ -44,7 +44,7 @@ export class DatabaseService {
   }
 
   public createNewListing(event: Partial<Event>, lat: string, lng: string) {
-    const collection = this.geo.collection('users');
+    const collection = this.geo.collection('events');
 
 
     // if (!this.auth.userDoc.organization) {
@@ -63,8 +63,9 @@ export class DatabaseService {
       startDate: event.startDate,
       endDate: event.endDate
     };
+    
     console.log(newEvent)
-    collection.setDoc(`${this.auth.userDoc.uid}/events/${newEvent.id}`, newEvent);
+    collection.setDoc(`${newEvent.id}`, newEvent);
   }
 
   public getEvents(lat:string, lng:string, radius: number): Observable<Event[]> {

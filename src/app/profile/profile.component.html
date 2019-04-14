@@ -1,18 +1,17 @@
  <div *ngIf="auth.userDoc">
-    <div class="left">
-        <h1>{{auth.userDoc.displayName}}</h1>  
-        <img src="{{auth.userDoc.photoURL}}"> 
+    <div *ngIf="auth.userDoc.registered else notRegistered">
+      <app-student *ngIf="!auth.userDoc.organization"></app-student>
+      <app-organization *ngIf="auth.userDoc.organization"></app-organization>
+    </div>
+    <ng-template #notRegistered>
+      <h1>Welcome to Vank!</h1>
+      <p>Let's get started with a simple question! Are you a:</p>
+      <button mat-stroked-button color="primary" (click)="setUser('student')">Student</button>
+      <button mat-stroked-button color="accent" (click)="setUser('organization')">Organization</button>
+    </ng-template>
     </div>
 
-    <div class="right" >
-      <mat-form-field>
-            <input matInput #input type="number" placeholder="Age">
-        </mat-form-field>
-        <br>
-      <mat-form-field>
-        <textarea matInput placeholder="Description"></textarea>
-      </mat-form-field>
-    </div>
-</div>
+
+
 
     

@@ -17,6 +17,7 @@ export interface FirebaseUser {
   email?: string | null;
   photoURL?: string;
   displayName?: string;
+  registered: boolean;
   rank: number;
   completedEvents: number;
   bio: string;

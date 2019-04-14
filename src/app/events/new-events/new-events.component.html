@@ -44,6 +44,19 @@
           </mat-form-field>
       </p>
 
+      <div>
+          <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+            <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+          </agm-map>
+        </div>
+
+        <div class="autocomplete-container">
+          <mat-google-maps-autocomplete [appearance]="appearance.OUTLINE"
+                                          (onAutocompleteSelected)="onAutocompleteSelected($event)"
+                                          (onLocationSelected)="onLocationSelected($event)">
+          </mat-google-maps-autocomplete>
+        </div>
+
       <button mat-flat-button color="accent" type="submit" [disabled]="!form.valid">Submit</button>
 
     </form>

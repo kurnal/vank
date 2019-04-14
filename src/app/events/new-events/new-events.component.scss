@@ -5,6 +5,15 @@
   width: 100%;
 }
 
+agm-map {
+  height: 400px;
+}
+
+.autocomplete-container {
+  padding: 1rem 0 1rem 0;
+  width: 50%;
+}
+
 .example-full-width {
   width: 100%;
 }
@@ -13,10 +22,6 @@
   background-color: #000;
   width: 250px;
   height: 250px
-}
-
-agm-map {
-  height: 300px;
 }
 
 .sebm-google-map-container {
