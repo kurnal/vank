@@ -1,0 +1,114 @@
+[debug] [2019-04-14T09:24:41.620Z] ----------------------------------------------------------------------
+[debug] [2019-04-14T09:24:41.622Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2019-04-14T09:24:41.622Z] CLI Version:   3.18.2
+[debug] [2019-04-14T09:24:41.622Z] Platform:      darwin
+[debug] [2019-04-14T09:24:41.622Z] Node Version:  v10.15.3
+[debug] [2019-04-14T09:24:41.623Z] Time:          Sun Apr 14 2019 05:24:41 GMT-0400 (Eastern Daylight Time)
+[debug] [2019-04-14T09:24:41.623Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-04-14T09:24:41.636Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-04-14T09:24:41.636Z] > authorizing via signed-in user
+[debug] [2019-04-14T09:24:41.638Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/vank-2e7f4  
+  
+ Sun Apr 14 2019 05:24:41 GMT-0400 (Eastern Daylight Time)
+[debug] [2019-04-14T09:24:41.951Z] <<< HTTP RESPONSE 200
+[debug] [2019-04-14T09:24:41.953Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/vank-2e7f4/tokens  
+  
+ Sun Apr 14 2019 05:24:41 GMT-0400 (Eastern Daylight Time)
+[debug] [2019-04-14T09:24:42.187Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'vank-2e7f4'...
+[info] 
+[info] i  deploying firestore, hosting
+[info] i  firestore: checking firestore.rules for compilation errors...
+[debug] [2019-04-14T09:24:42.384Z] >>> HTTP REQUEST POST https://firebaserules.googleapis.com/v1/projects/vank-2e7f4:test  
+ { source: { files: [ [Object] ] } } 
+ Sun Apr 14 2019 05:24:42 GMT-0400 (Eastern Daylight Time)
+[debug] [2019-04-14T09:24:42.560Z] <<< HTTP RESPONSE 200
+[info] ✔  firestore: rules file firestore.rules compiled successfully
+[info] i  firestore: uploading rules firestore.rules...
+[debug] [2019-04-14T09:24:42.565Z] >>> HTTP REQUEST POST https://firebaserules.googleapis.com/v1/projects/vank-2e7f4/rulesets  
+ { source: { files: [ [Object] ] } } 
+ Sun Apr 14 2019 05:24:42 GMT-0400 (Eastern Daylight Time)
+[debug] [2019-04-14T09:24:42.565Z] >>> HTTP REQUEST GET https://firestore.googleapis.com/v1beta1/projects/vank-2e7f4/databases/(default)/indexes  
+  
+ Sun Apr 14 2019 05:24:42 GMT-0400 (Eastern Daylight Time)
+[debug] [2019-04-14T09:24:42.824Z] <<< HTTP RESPONSE 200
+[debug] [2019-04-14T09:24:42.869Z] <<< HTTP RESPONSE 200
+[debug] [2019-04-14T09:24:42.869Z] [rules] created ruleset projects/vank-2e7f4/rulesets/f0ec3368-c4a4-4a17-8f8d-ac5bcc0cdbe0
+[info] i  hosting: preparing dist/bitcamp2019 directory for upload...
+[debug] [2019-04-14T09:24:43.579Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/vank-2e7f4/uploads/-LcQ9R6ruozzYM9ra5Na?fileCount=16&message=  
+  
+ Sun Apr 14 2019 05:24:43 GMT-0400 (Eastern Daylight Time)
+[debug] [2019-04-14T09:24:45.667Z] <<< HTTP RESPONSE 410
+[debug] [2019-04-14T09:24:45.667Z] <<< HTTP RESPONSE BODY undefined
+[debug] [2019-04-14T09:24:45.669Z] TypeError: Cannot read property 'error' of undefined
+    at module.exports (/usr/local/lib/node_modules/firebase-tools/lib/responseToError.js:10:13)
+    at Request._callback (/usr/local/lib/node_modules/firebase-tools/lib/api.js:45:25)
+    at Request.self.callback (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:186:22)
+    at Request.emit (events.js:189:13)
+    at Request.EventEmitter.emit (domain.js:441:20)
+    at Request.<anonymous> (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:1163:10)
+    at Request.emit (events.js:189:13)
+    at Request.EventEmitter.emit (domain.js:441:20)
+    at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:1085:12)
+    at Object.onceWrapper (events.js:277:13)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2019-04-14T09:25:25.965Z] ----------------------------------------------------------------------
+[debug] [2019-04-14T09:25:25.968Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2019-04-14T09:25:25.968Z] CLI Version:   3.18.2
+[debug] [2019-04-14T09:25:25.968Z] Platform:      darwin
+[debug] [2019-04-14T09:25:25.968Z] Node Version:  v10.15.3
+[debug] [2019-04-14T09:25:25.969Z] Time:          Sun Apr 14 2019 05:25:25 GMT-0400 (Eastern Daylight Time)
+[debug] [2019-04-14T09:25:25.969Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-04-14T09:25:25.980Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-04-14T09:25:25.981Z] > authorizing via signed-in user
+[debug] [2019-04-14T09:25:25.983Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/vank-2e7f4  
+  
+ Sun Apr 14 2019 05:25:25 GMT-0400 (Eastern Daylight Time)
+[debug] [2019-04-14T09:25:26.322Z] <<< HTTP RESPONSE 200
+[debug] [2019-04-14T09:25:26.323Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/vank-2e7f4/tokens  
+  
+ Sun Apr 14 2019 05:25:26 GMT-0400 (Eastern Daylight Time)
+[debug] [2019-04-14T09:25:26.612Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'vank-2e7f4'...
+[info] 
+[info] i  deploying firestore, hosting
+[info] i  firestore: checking firestore.rules for compilation errors...
+[debug] [2019-04-14T09:25:26.797Z] >>> HTTP REQUEST POST https://firebaserules.googleapis.com/v1/projects/vank-2e7f4:test  
+ { source: { files: [ [Object] ] } } 
+ Sun Apr 14 2019 05:25:26 GMT-0400 (Eastern Daylight Time)
+[debug] [2019-04-14T09:25:26.956Z] <<< HTTP RESPONSE 200
+[info] ✔  firestore: rules file firestore.rules compiled successfully
+[info] i  firestore: uploading rules firestore.rules...
+[debug] [2019-04-14T09:25:26.961Z] >>> HTTP REQUEST POST https://firebaserules.googleapis.com/v1/projects/vank-2e7f4/rulesets  
+ { source: { files: [ [Object] ] } } 
+ Sun Apr 14 2019 05:25:26 GMT-0400 (Eastern Daylight Time)
+[debug] [2019-04-14T09:25:26.962Z] >>> HTTP REQUEST GET https://firestore.googleapis.com/v1beta1/projects/vank-2e7f4/databases/(default)/indexes  
+  
+ Sun Apr 14 2019 05:25:26 GMT-0400 (Eastern Daylight Time)
+[debug] [2019-04-14T09:25:27.248Z] <<< HTTP RESPONSE 200
+[debug] [2019-04-14T09:25:27.257Z] <<< HTTP RESPONSE 200
+[debug] [2019-04-14T09:25:27.257Z] [rules] created ruleset projects/vank-2e7f4/rulesets/980b9602-85a8-4623-a79c-b0fa182f8bb8
+[info] i  hosting: preparing dist/bitcamp2019 directory for upload...
+[debug] [2019-04-14T09:25:27.967Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/vank-2e7f4/uploads/-LcQ9axYOyDP27fqv89O?fileCount=16&message=  
+  
+ Sun Apr 14 2019 05:25:27 GMT-0400 (Eastern Daylight Time)
+[debug] [2019-04-14T09:25:29.801Z] <<< HTTP RESPONSE 410
+[debug] [2019-04-14T09:25:29.802Z] <<< HTTP RESPONSE BODY undefined
+[debug] [2019-04-14T09:25:29.803Z] TypeError: Cannot read property 'error' of undefined
+    at module.exports (/usr/local/lib/node_modules/firebase-tools/lib/responseToError.js:10:13)
+    at Request._callback (/usr/local/lib/node_modules/firebase-tools/lib/api.js:45:25)
+    at Request.self.callback (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:186:22)
+    at Request.emit (events.js:189:13)
+    at Request.EventEmitter.emit (domain.js:441:20)
+    at Request.<anonymous> (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:1163:10)
+    at Request.emit (events.js:189:13)
+    at Request.EventEmitter.emit (domain.js:441:20)
+    at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:1085:12)
+    at Object.onceWrapper (events.js:277:13)
+[error] 
+[error] Error: An unexpected error has occurred.
