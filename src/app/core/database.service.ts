@@ -12,6 +12,7 @@ import { DocumentSnapshot, DocumentData } from '@firebase/firestore-types';
 export interface Event {
   id?: string;
   organization?: string;
+  organizationRef: string;
   description: string;
   requestAmount: number;
   students?: {
@@ -55,6 +56,7 @@ export class DatabaseService {
     const newEvent: Event = {
       id: this.afs.createId(),
       organization: this.auth.userDoc.displayName,
+      organizationRef: this.auth.userDoc.uid,
       description: event.description,
       requestAmount: event.requestAmount,
       students: {},

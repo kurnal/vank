@@ -22,6 +22,7 @@ import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
 import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
 import { StudentComponent } from './profile/student/student.component';
 import { OrganizationComponent } from './profile/organization/organization.component';
+import { OrgListEventsComponent } from './events/org-list-events/org-list-events.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { OrganizationComponent } from './profile/organization/organization.compo
     NewEventsComponent,
     LandingComponent,
     StudentComponent,
-    OrganizationComponent
+    OrganizationComponent,
+    OrgListEventsComponent
   ],
   imports: [
     BrowserModule,

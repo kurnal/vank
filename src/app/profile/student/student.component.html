@@ -8,12 +8,15 @@
 
   <div class="row">
     <div class="col-12">
+        <form [formGroup]="form" (ngSubmit)="submit()">
         <mat-form-field>
-            <input matInput #input type="number" placeholder="Age">
+            <input matInput #input type="number" placeholder="Age" formControlName="age">
         </mat-form-field>
       <mat-form-field>
-        <textarea matInput placeholder="Description"></textarea>
+        <textarea matInput placeholder="Description" formControlName="description"></textarea>
       </mat-form-field>
+      <button mat-stroked-button color="primary" type="submit" [disabled]="!form.valid">Submit</button>
+    </form>
     </div>
   </div>
 </div>
