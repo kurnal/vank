@@ -1,37 +1,15 @@
-<ul>
-  <li *ngFor="let event of events | async">{{event.description}}</li>
-</ul>
-
-
-<div class="example-container mat-elevation-z8">
-    <button mat-button (click)="openDialog()">New Listing</button>
-    <table mat-table [dataSource]="dataSource">
-  
-      <!-- Position Column -->
-      <ng-container matColumnDef="position">
-        <th mat-header-cell *matHeaderCellDef> No. </th>
-        <td mat-cell *ngFor="let event of events | async"> {{event.description}} </td>
-      </ng-container>
-  
-      <!-- Name Column -->
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Name </th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-      </ng-container>
-  
-      <!-- Weight Column -->
-      <ng-container matColumnDef="weight">
-        <th mat-header-cell *matHeaderCellDef> Weight </th>
-        <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-      </ng-container>
-  
-      <!-- Symbol Column -->
-      <ng-container matColumnDef="symbol">
-        <th mat-header-cell *matHeaderCellDef> Symbol </th>
-        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-      </ng-container>
-  
-      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-  </div>
+<mat-card *ngFor="let event of events | async" class="example-card">
+    <mat-card-header>
+      <mat-card-title>{{event.description}}</mat-card-title>
+      <mat-card-subtitle>Need: {{event.requestAmount}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <ul *ngFor="let event of events | async" class="tags">
+            <li><a href="" class="tag">{{event.requestAmount}}</a></li>
+            <li><a href="" class="tag">Student One</a></li>
+        </ul>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button >LIKE</button>
+    </mat-card-actions>
+  </mat-card>

@@ -26,7 +26,9 @@ const routes: Routes = [
     component: OrgListEventsComponent,
     canActivate: [AuthGuard]
   },
-  { path: "", component: LandingComponent }
+  { path: "", 
+    redirectTo: "/profile" ,
+    pathMatch: 'full'}
 ];
 
 @NgModule({
