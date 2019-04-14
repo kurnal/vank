@@ -1,12 +1,12 @@
-import { Component, OnInit, Inject} from '@angular/core';
+import { Component, OnInit, Inject, ViewChild} from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { DatabaseService } from 'src/app/core/database.service';
+import { DatabaseService, Event } from 'src/app/core/database.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { NewEventsComponent } from './new-events/new-events.component';
-
-export interface DialogData {
-  animal: 'panda' | 'unicorn' | 'lion';
-}
+import {Location, Appearance} from '@angular-material-extensions/google-maps-autocomplete';
+import PlaceResult = google.maps.places.PlaceResult;
+import { Observable } from 'rxjs';
+import { AuthService } from '../core/auth.service';
 
 @Component({
   selector: 'app-events',
@@ -16,7 +16,17 @@ export interface DialogData {
 
 export class EventsComponent implements OnInit {
 
-  constructor(private db: DatabaseService, public dialog: MatDialog) { }
+  public appearance = Appearance;
+  public zoom: number;
+  public latitude: number;
+  public longitude: number;
+  public selectedAddress: PlaceResult;
+
+  radius;
+
+  events: Observable<Event[]>;
+  
+  constructor(private db: DatabaseService, public auth: AuthService, public dialog: MatDialog) { }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(NewEventsComponent, {
@@ -25,29 +35,39 @@ export class EventsComponent implements OnInit {
     });
   }
 
-  displayedColumns = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
+  @ViewChild('gmap') gmapElement: any;
+  map: google.maps.Map;
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.zoom = 10;
+    this.latitude = 52.520008;
+    this.longitude = 13.404954;
+
+    this.setCurrentPosition();
+  }
+
+  private setCurrentPosition() {
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.latitude = position.coords.latitude;
+        this.longitude = position.coords.longitude;
+        this.zoom = 12;
+      });
+    }
+  }
   
-}
+  onAutocompleteSelected(result: PlaceResult) {
+    console.log('onAddressSelected: ', result);
+  }
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
+  onLocationSelected(location: Location) {
+    console.log('onLocationSelected: ', location);
+    this.latitude = location.latitude;
+    this.longitude = location.longitude;
+  }
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-];
+  search() {
+    this.events = this.db.getEvents(this.latitude, this.longitude, this.radius);
+  }
+
+}
