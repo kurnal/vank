@@ -12,7 +12,7 @@ Submission for **Bitcamp 2019**.
 ## Stack Outline 
 **Front End**
 * Deployed on Github Pages with a unique domain name 
-* Google Maps API
+* Google Maps API + Geocoding 
 * [Angular version 7.3.6](https://cli.angular.io/) 
   * Materials
   * Components
