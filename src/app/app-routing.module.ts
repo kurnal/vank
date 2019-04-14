@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { EventsComponent } from './events/events.component';
 import { NewEventsComponent } from './events/new-events/new-events.component';
+import { OrgListEventsComponent } from './events/org-list-events/org-list-events.component';
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -18,6 +19,11 @@ const routes: Routes = [
   {
     path: "events/new",
     component: NewEventsComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "events/my-events",
+    component: OrgListEventsComponent,
     canActivate: [AuthGuard]
   },
   { path: "", component: LandingComponent }

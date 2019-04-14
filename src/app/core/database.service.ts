@@ -70,11 +70,16 @@ export class DatabaseService {
     collection.setDoc(`${newEvent.id}`, newEvent);
   }
 
-  public getEvents(lat:string, lng:string, radius: number): Observable<Event[]> {
+  public getEvents(lat:number, lng:number, radius: number): Observable<Event[]> {
     const collection = this.geo.collection('events');
     const center = this.geo.point(lat, lng);
     const field = 'location';
     return collection.within(center, radius, field);
+  }
+
+  public getOrganizationEvents(): Observable<Event[]>{
+    console.log(this.auth.userDoc.uid);
+    return this.afs.collection<Event>('events', ref => ref.where('organizationRef', '==', this.auth.userDoc.uid)).valueChanges();
   }
 
   public updateProfile(user: Partial<FirebaseUser>) {

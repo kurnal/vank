@@ -8,6 +8,7 @@
       <button mat-button (click)="auth.signOut()">Logout</button>
       <a mat-button routerLink="/profile">Profile</a>
       <a mat-button routerLink="/events">Events</a>
+      <a mat-button routerLink="/events/my-events" *ngIf="auth.userDoc.organization">My Events</a>
     </ng-template>
   </mat-toolbar>
 </div>
