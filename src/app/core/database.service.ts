@@ -20,9 +20,12 @@ export interface Event {
       approved: boolean
     }
   };
-
-  lat: string;
-  lng: string;
+  location: {
+    geohash: string; // the geohash
+    geopoint: firebase.firestore.GeoPoint // firestore.GeoPoint
+  }
+  lat: number;
+  lng: number;
   tags: string[];
   startDate: firebase.firestore.Timestamp | Date;
   endDate: firebase.firestore.Timestamp | Date;
@@ -43,28 +46,25 @@ export class DatabaseService {
     console.log(auth);
   }
 
-  public createNewListing(event: Partial<Event>, lat: string, lng: string) {
+  public createNewListing(event: Partial<Event>, lat: number, lng: number) {
+    if (!this.auth.userDoc.organization) {
+      return;
+    }
     const collection = this.geo.collection('events');
-
-
-    // if (!this.auth.userDoc.organization) {
-    //   return;
-    // }
-
+    const point = this.geo.point(lat, lng);
     const newEvent: Event = {
       id: this.afs.createId(),
       organization: this.auth.userDoc.displayName,
       description: event.description,
       requestAmount: event.requestAmount,
       students: {},
+      location: point.data,
       lat: lat,
       lng: lng,
       tags: event.tags,
       startDate: event.startDate,
       endDate: event.endDate
     };
-    
-    console.log(newEvent)
     collection.setDoc(`${newEvent.id}`, newEvent);
   }
 

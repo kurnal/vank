@@ -31,7 +31,7 @@ export class NewEventsComponent implements OnInit {
   @ViewChild('search') searchElementRef: ElementRef;
 
   constructor(private db: DatabaseService, @Inject(MAT_DIALOG_DATA) public data: DialogData, 
-  private fb: FormBuilder) {
+  private fb: FormBuilder, private dialogRef:MatDialogRef<NewEventsComponent>) {
     this.form = this.fb.group({
       description: ['',[Validators.required]],
       requestAmount: ['',[Validators.required]],
@@ -74,7 +74,9 @@ export class NewEventsComponent implements OnInit {
     
   submit() {
     let formValue = this.form.value;
-    this.db.createNewListing(formValue, "1", "2");
+    this.db.createNewListing(formValue, this.latitude, this.longitude);
+    this.form.reset();
+    this.dialogRef.close();
   }
 
 }

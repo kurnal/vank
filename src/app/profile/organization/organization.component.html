@@ -1,3 +1,22 @@
-<p>
-  organization works!
-</p>
+<div class="container">
+    <div class="row">
+      <div class="col-12 center">
+          <img src="{{auth.userDoc.photoURL}}"> 
+          <h1>{{auth.userDoc.displayName}}</h1>  
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col-12">
+        <form [formGroup]="form" (ngSubmit)="submit()">
+            <mat-form-field>
+                <input matInput placeholder="Organization Name" formControlName="orgName">
+            </mat-form-field>
+          <mat-form-field>
+            <textarea matInput placeholder="Mission Statement" formControlName="bio"></textarea>
+          </mat-form-field>
+          <button mat-stroked-button color="primary" type="submit" [disabled]="!form.valid">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
