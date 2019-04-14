@@ -24,6 +24,8 @@ import { StudentComponent } from './profile/student/student.component';
 import { OrganizationComponent } from './profile/organization/organization.component';
 import { OrgListEventsComponent } from './events/org-list-events/org-list-events.component';
 import { SingleEventComponent } from './events/single-event/single-event.component';
+import { RateStudentsComponent } from './events/org-list-events/rate-students/rate-students.component';
+import { OrgEventComponent } from './events/org-list-events/org-event/org-event.component';
 
 
 @NgModule({
@@ -37,7 +39,9 @@ import { SingleEventComponent } from './events/single-event/single-event.compone
     StudentComponent,
     OrganizationComponent,
     OrgListEventsComponent,
-    SingleEventComponent
+    SingleEventComponent,
+    RateStudentsComponent,
+    OrgEventComponent
   ],
   imports: [
     BrowserModule,

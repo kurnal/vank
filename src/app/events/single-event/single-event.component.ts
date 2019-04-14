@@ -13,8 +13,7 @@ export class SingleEventComponent implements OnInit {
 
   constructor(private db: DatabaseService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   join() {
     this.db.signUp(this.event.id);

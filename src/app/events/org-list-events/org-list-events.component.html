@@ -1,15 +1,3 @@
-<mat-card *ngFor="let event of events | async" class="example-card">
-    <mat-card-header>
-      <mat-card-title>{{event.description}}</mat-card-title>
-      <mat-card-subtitle>Need: {{event.requestAmount}}</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-        <ul *ngFor="let event of events | async" class="tags">
-            <li><a href="" class="tag">{{event.requestAmount}}</a></li>
-            <li><a href="" class="tag">Student One</a></li>
-        </ul>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button >LIKE</button>
-    </mat-card-actions>
-  </mat-card>
+
+
+<app-org-event *ngFor="let event of events | async" [event]="event"></app-org-event>
