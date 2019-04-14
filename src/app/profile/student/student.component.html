@@ -13,10 +13,10 @@
     <div class="col-12">
         <form [formGroup]="form" (ngSubmit)="submit()">
         <mat-form-field>
-            <input matInput #input type="number" placeholder="Age" formControlName="age">
+            <input matInput #input type="number" placeholder="Age" [value]="auth.userDoc.age ? auth.userDoc.age : ''" formControlName="age">
         </mat-form-field>
       <mat-form-field>
-        <textarea matInput placeholder="Description" formControlName="description"></textarea>
+        <textarea matInput placeholder="Biography" [value]="auth.userDoc.description ? auth.userDoc.description : ''" formControlName="description"></textarea>
       </mat-form-field>
       <button mat-stroked-button color="primary" type="submit" [disabled]="!form.valid">Submit</button>
     </form>

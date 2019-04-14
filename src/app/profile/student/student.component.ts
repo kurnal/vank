@@ -16,7 +16,7 @@ export class StudentComponent implements OnInit {
     private fb: FormBuilder) { 
       this.form = this.fb.group({
         age:['',[Validators.required]],
-        description: ['',[Validators.required]]
+        bio: ['',[Validators.required]]
       });
     }
 
